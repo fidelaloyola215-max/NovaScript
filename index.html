@@ -1,138 +1,292 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaScripts</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaScripts</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 18px 10px 40px;
+      background:
+        radial-gradient(circle at top, #09283a 0%, #040a12 45%, #000 100%);
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .header,
+    .panel {
+      border: 2px solid #00d9ff;
+      background: rgba(5, 13, 24, 0.96);
+      box-shadow: 0 0 18px rgba(0, 217, 255, 0.15);
+    }
+
+    .header {
+      padding: 28px 18px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      color: #ff20d9;
+      font-size: 34px;
+      letter-spacing: 2px;
+      text-shadow:
+        0 0 5px #ff20d9,
+        0 0 15px #ff20d9,
+        0 0 30px #ff20d9;
+    }
+
+    .header p {
+      margin: 12px 0 0;
+      color: #a8edff;
+      font-size: 15px;
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .panel-title {
+      color: #e9fbff;
+      font-size: 23px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .task {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      width: 100%;
+      min-height: 82px;
+      margin: 12px 0;
+      padding: 14px;
+      background: #101d30;
+      border: 1px solid #29445d;
+      border-left: 4px solid #00d9ff;
+      text-decoration: none;
+      color: white;
+      transition: .2s;
+    }
+
+    .task:active {
+      transform: scale(.98);
+    }
+
+    .task:hover {
+      background: #14283e;
+      border-color: #00d9ff;
+      box-shadow: 0 0 15px rgba(0, 217, 255, .3);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #08121e;
+      border: 1px solid #00d9ff;
+      color: #ff20d9;
+      font-size: 22px;
+      box-shadow: 0 0 10px rgba(0,217,255,.2);
+    }
+
+    .task-text {
+      flex: 1;
+    }
+
+    .task-title {
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .task-description {
+      color: #91a9b8;
+      font-size: 13px;
+    }
+
+    .arrow {
+      color: #00d9ff;
+      font-size: 28px;
+    }
+
+    .separator {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 22px 0;
+      color: #7b8d99;
+      text-align: center;
+      letter-spacing: 4px;
+    }
+
+    .separator::before,
+    .separator::after {
+      content: "";
+      height: 1px;
+      background: #294052;
+      flex: 1;
+    }
+
+    .continue {
+      display: block;
+      padding: 17px;
+      margin-top: 18px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      color: #001018;
+      background: linear-gradient(90deg, #00bde8, #00eaff);
+      border: 2px solid #00eaff;
+      box-shadow: 0 0 20px rgba(0,220,255,.35);
+    }
+
+    .footer {
+      margin-top: 22px;
+      text-align: center;
+      color: #526776;
+      font-size: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 27px;
+      }
+
+      .panel {
+        padding: 13px;
+      }
+
+      .panel-title {
+        font-size: 20px;
+      }
+
+      .task {
+        min-height: 76px;
+        padding: 11px;
+      }
+
+      .icon {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+      }
+
+      .task-title {
+        font-size: 15px;
+      }
+
+      .task-description {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <nav>
-            <h2>NovaScripts</h2>
+  <div class="container">
 
-            <div class="menu">
-                <a href="#inicio">Inicio</a>
-                <a href="#caracteristicas">Características</a>
-                <a href="#scripts">Scripts</a>
-                <a href="#faq">FAQ</a>
-            </div>
-        </nav>
-    </header>
+    <div class="header">
+      <h1>NOVASCRIPTS</h1>
+      <p>Seleccioná una opción para continuar</p>
+    </div>
 
-    <main>
+    <div class="panel">
 
-        <section id="inicio" class="hero">
-            <div>
-                <p class="small">MI PROYECTO DE ROBLOX</p>
+      <div class="panel-title">
+        OPCIONES
+      </div>
 
-                <h1>Nova<span>Scripts</span></h1>
+      <a class="task"
+         href="https://www.youtube.com/"
+         target="_blank">
+        <div class="icon">▶</div>
+        <div class="task-text">
+          <div class="task-title">VER EL VIDEO</div>
+          <div class="task-description">
+            Mirá el video en YouTube
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </a>
 
-                <p>
-                    Scripts y herramientas para mis propios proyectos
-                    de Roblox.
-                </p>
+      <a class="task"
+         href="https://www.youtube.com/"
+         target="_blank">
+        <div class="icon">▶</div>
+        <div class="task-text">
+          <div class="task-title">SEGUNDO VIDEO</div>
+          <div class="task-description">
+            Abrir otro video
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </a>
 
-                <a href="#scripts" class="button">Ver proyectos</a>
-            </div>
-        </section>
+      <a class="task" href="#informacion">
+        <div class="icon">★</div>
+        <div class="task-text">
+          <div class="task-title">INFORMACIÓN</div>
+          <div class="task-description">
+            Conocé más sobre el proyecto
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </a>
 
-        <section id="caracteristicas" class="section">
-            <h2>Características</h2>
+      <a class="task"
+         href="https://example.com"
+         target="_blank">
+        <div class="icon">↗</div>
+        <div class="task-text">
+          <div class="task-title">SITIO WEB</div>
+          <div class="task-description">
+            Visitar el sitio web
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </a>
 
-            <div class="cards">
+      <a class="continue"
+         href="https://www.youtube.com/"
+         target="_blank">
+        CONTINUAR
+      </a>
 
-                <div class="card">
-                    <h3>⚡ Rápido</h3>
-                    <p>
-                        Herramientas pensadas para funcionar
-                        de forma sencilla.
-                    </p>
-                </div>
+    </div>
 
-                <div class="card">
-                    <h3>🎮 Roblox</h3>
-                    <p>
-                        Proyectos y sistemas creados para
-                        mis propios juegos.
-                    </p>
-                </div>
+    <div class="separator">OR</div>
 
-                <div class="card">
-                    <h3>📱 Mobile</h3>
-                    <p>
-                        Diseño adaptado para celulares.
-                    </p>
-                </div>
+    <div class="panel" id="informacion">
+      <div class="panel-title">INFORMACIÓN</div>
 
-            </div>
-        </section>
+      <p style="color:#91a9b8; line-height:1.6;">
+        Bienvenido a NovaScripts.
+      </p>
+    </div>
 
-        <section id="scripts" class="section">
-            <h2>Mis proyectos</h2>
+    <div class="footer">
+      © 2026 — NovaScripts
+    </div>
 
-            <div class="cards">
-
-                <div class="card project">
-                    <h3>Proyecto 01</h3>
-                    <p>
-                        Próximamente.
-                    </p>
-
-                    <button onclick="mostrarMensaje()">
-                        Ver proyecto
-                    </button>
-                </div>
-
-                <div class="card project">
-                    <h3>Proyecto 02</h3>
-                    <p>
-                        Próximamente.
-                    </p>
-
-                    <button onclick="mostrarMensaje()">
-                        Ver proyecto
-                    </button>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="faq" class="section">
-            <h2>Preguntas frecuentes</h2>
-
-            <div class="faq">
-                <button onclick="toggleFAQ(1)">
-                    ¿Qué es NovaScripts?
-                </button>
-
-                <p id="faq1">
-                    Es un sitio para mostrar mis proyectos
-                    y herramientas de Roblox.
-                </p>
-            </div>
-
-            <div class="faq">
-                <button onclick="toggleFAQ(2)">
-                    ¿Es compatible con celular?
-                </button>
-
-                <p id="faq2">
-                    Sí. La página está diseñada para adaptarse
-                    a pantallas de celulares.
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>© 2026 NovaScripts</p>
-    </footer>
-
-    <script src="script.js"></script>
+  </div>
 
 </body>
 </html>
