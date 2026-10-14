@@ -1,293 +1,342 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShadowScript</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 18px 10px 40px;
-      background:
-        radial-gradient(circle at top, #09283a 0%, #040a12 45%, #000 100%);
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 650px;
-      margin: auto;
-    }
-
-    .header,
-    .panel {
-      border: 2px solid #00d9ff;
-      background: rgba(5, 13, 24, 0.96);
-      box-shadow: 0 0 18px rgba(0, 217, 255, 0.15);
-    }
-
-    .header {
-      padding: 28px 18px;
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    .header h1 {
-      margin: 0;
-      color: #ff20d9;
-      font-size: 34px;
-      letter-spacing: 2px;
-      text-shadow:
-        0 0 5px #ff20d9,
-        0 0 15px #ff20d9,
-        0 0 30px #ff20d9;
-    }
-
-    .header p {
-      margin: 12px 0 0;
-      color: #a8edff;
-      font-size: 15px;
-    }
-
-    .panel {
-      padding: 18px;
-    }
-
-    .panel-title {
-      color: #e9fbff;
-      font-size: 23px;
-      font-weight: bold;
-      margin-bottom: 18px;
-    }
-
-    .task {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      width: 100%;
-      min-height: 70px;
-      margin: 12px 0;
-      padding: 10px 12px;
-      border-radius: 16px;
-      background: #101d30;
-      border: 1px solid #29445d;
-      border-left: 4px solid #00d9ff;
-      text-decoration: none;
-      color: white;
-      transition: .2s;
-    }
-
-    .task:active {
-      transform: scale(.98);
-    }
-
-    .task:hover {
-      background: #14283e;
-      border-color: #00d9ff;
-      box-shadow: 0 0 15px rgba(0, 217, 255, .3);
-    }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #08121e;
-      border: 1px solid #00d9ff;
-      color: #ff20d9;
-      font-size: 22px;
-      box-shadow: 0 0 10px rgba(0,217,255,.2);
-    }
-
-    .task-text {
-      flex: 1;
-    }
-
-    .task-title {
-      font-size: 17px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .task-description {
-      color: #91a9b8;
-      font-size: 13px;
-    }
-
-    .arrow {
-      color: #00d9ff;
-      font-size: 28px;
-    }
-
-    .separator {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin: 22px 0;
-      color: #7b8d99;
-      text-align: center;
-      letter-spacing: 4px;
-    }
-
-    .separator::before,
-    .separator::after {
-      content: "";
-      height: 1px;
-      background: #294052;
-      flex: 1;
-    }
-
-    .continue {
-      display: block;
-      padding: 17px;
-      margin-top: 18px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      color: #001018;
-      background: linear-gradient(90deg, #00bde8, #00eaff);
-      border: 2px solid #00eaff;
-      box-shadow: 0 0 20px rgba(0,220,255,.35);
-    }
-
-    .footer {
-      margin-top: 22px;
-      text-align: center;
-      color: #526776;
-      font-size: 12px;
-    }
-
-    @media (max-width: 480px) {
-      .header h1 {
-        font-size: 27px;
-      }
-
-      .panel {
-        padding: 13px;
-      }
-
-      .panel-title {
-        font-size: 20px;
-      }
-
-      .task {
-        min-height: 76px;
-        padding: 11px;
-      }
-
-      .icon {
-        width: 42px;
-        height: 42px;
-        min-width: 42px;
-      }
-
-      .task-title {
-        font-size: 15px;
-      }
-
-      .task-description {
-        font-size: 12px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b10">
+<title>NovaWear | Roblox Fashion</title>
+<style>
+:root {
+  --bg: #080b10;
+  --panel: #111720;
+  --cyan: #62f5ff;
+  --white: #f5f7fb;
+  --muted: #9ba8b7;
+  --border: rgba(98,245,255,.18);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 15% 0%, #12333d 0, transparent 34%),
+    radial-gradient(ellipse at 100% 25%, #182039 0, transparent 32%),
+    var(--bg);
+  color: var(--white);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+.wrap { width: min(1120px, 92%); margin: auto; }
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 22px 0;
+}
+.logo { font-size: 22px; font-weight: 900; letter-spacing: -1px; }
+.logo span { color: var(--cyan); }
+.links { display: flex; gap: 20px; color: var(--muted); font-size: 13px; }
+.links a:hover { color: var(--cyan); }
+.pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 11px 17px; border-radius: 999px;
+  border: 1px solid var(--border); background: #101820;
+  color: var(--white); font-size: 13px; font-weight: 750;
+}
+.pill.primary { background: var(--cyan); color: #061014; border-color: var(--cyan); }
+.hero {
+  padding: 68px 0 58px;
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  align-items: center; gap: 35px;
+}
+.eyebrow {
+  color: var(--cyan); font-size: 11px; font-weight: 850;
+  letter-spacing: 2.5px; text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(42px, 7vw, 76px); line-height: .99;
+  letter-spacing: -4px; margin: 17px 0;
+}
+h1 span { color: var(--cyan); }
+.hero p, .intro { color: var(--muted); line-height: 1.8; font-size: 14px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+.hero-art {
+  min-height: 330px; border-radius: 32px; overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse at 50% 30%, #276b77, transparent 45%),
+    linear-gradient(145deg, #17242d, #0d111a 70%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.hero-art::before {
+  content: ""; position: absolute; width: 230px; height: 230px;
+  border: 1px solid rgba(98,245,255,.3); border-radius: 50%;
+  box-shadow: 0 0 70px rgba(98,245,255,.12);
+}
+.avatar {
+  position: relative; display: flex; flex-direction: column;
+  align-items: center; transform: rotate(-5deg);
+}
+.head {
+  width: 86px; height: 77px; border-radius: 15px;
+  background: linear-gradient(135deg, #e7c19f, #a97855);
+  box-shadow: inset -8px -5px 0 #8f6349;
+}
+.hair {
+  width: 92px; height: 25px; background: #151820;
+  border-radius: 14px 14px 5px 5px; margin-bottom: -10px; z-index: 1;
+}
+.body {
+  width: 128px; height: 110px; margin-top: 8px;
+  border-radius: 20px 20px 13px 13px;
+  background: linear-gradient(135deg, #303a48, #10151d);
+  border: 2px solid #5beaf5;
+  box-shadow: 0 0 25px #62f5ff24;
+  display: grid; place-items: center;
+  font-size: 18px; font-weight: 950; color: var(--cyan);
+}
+.legs { display: flex; gap: 9px; }
+.legs i {
+  display: block; width: 52px; height: 75px;
+  background: linear-gradient(90deg, #141b28, #30394a);
+  border-radius: 8px 8px 13px 13px;
+}
+section { padding: 35px 0; }
+.section-head {
+  display: flex; justify-content: space-between;
+  align-items: end; gap: 15px; margin-bottom: 22px;
+}
+h2 { font-size: clamp(25px, 4vw, 36px); letter-spacing: -1px; margin: 8px 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.filter {
+  border: 1px solid #26313e; border-radius: 999px;
+  padding: 9px 14px; color: var(--muted); background: #10151d;
+  font-size: 12px;
+}
+.filter.active, .filter:hover { color: var(--cyan); border-color: var(--cyan); }
+.grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 17px;
+}
+.product {
+  background: linear-gradient(150deg, #151c26, #0e1219);
+  border: 1px solid #222d39; border-radius: 23px;
+  overflow: hidden; transition: transform .2s, border-color .2s;
+}
+.product:hover { transform: translateY(-4px); border-color: #62f5ff88; }
+.product-art {
+  min-height: 200px; display: grid; place-items: center;
+  position: relative; overflow: hidden;
+}
+.product-art::before {
+  content: ""; position: absolute; width: 180px; height: 180px;
+  border-radius: 50%; background: #ffffff12; filter: blur(2px);
+}
+.product-art .garment {
+  z-index: 1; font-size: 86px; filter: drop-shadow(0 16px 12px #0008);
+  transform: rotate(-7deg);
+}
+.art1 { background: linear-gradient(135deg,#263b4b,#10141e); }
+.art2 { background: linear-gradient(135deg,#423044,#16131e); }
+.art3 { background: linear-gradient(135deg,#34403b,#101714); }
+.art4 { background: linear-gradient(135deg,#33394e,#141722); }
+.art5 { background: linear-gradient(135deg,#493d32,#181410); }
+.art6 { background: linear-gradient(135deg,#2b3b42,#10181d); }
+.product-info { padding: 16px; }
+.tag { color: var(--cyan); font-size: 10px; letter-spacing: 1.3px; font-weight: 850; }
+.product h3 { font-size: 16px; margin: 8px 0; }
+.product p { color: var(--muted); font-size: 12px; line-height: 1.6; min-height: 38px; }
+.price-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.price { font-weight: 900; font-size: 18px; }
+.price small { color: var(--muted); font-size: 10px; font-weight: 500; }
+.mini {
+  border: 0; border-radius: 999px; padding: 10px 13px;
+  color: #071014; background: var(--cyan); font-size: 11px; font-weight: 850;
+}
+.exclusive {
+  border-radius: 28px; padding: 30px;
+  border: 1px solid var(--border);
+  background: radial-gradient(ellipse at 100% 0%, #16444c, transparent 55%), #10151d;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 22px; flex-wrap: wrap;
+}
+.exclusive p { color: var(--muted); line-height: 1.8; font-size: 13px; max-width: 520px; }
+.big-price { font-size: 38px; font-weight: 950; }
+.big-price small { font-size: 13px; color: var(--muted); }
+.note {
+  color: var(--muted); font-size: 11px; line-height: 1.7;
+  border: 1px solid #26313e; padding: 14px 16px;
+  border-radius: 16px; margin-top: 16px;
+}
+footer {
+  border-top: 1px solid #202a35; margin-top: 45px;
+  padding: 26px 0 35px; color: var(--muted);
+  font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+@media (max-width: 720px) {
+  .links { gap: 11px; font-size: 11px; }
+  .hero { grid-template-columns: 1fr; padding-top: 42px; gap: 25px; }
+  .hero-art { min-height: 275px; }
+  h1 { letter-spacing: -2px; }
+  .grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 11px; }
+  .product-art { min-height: 145px; }
+  .product-art .garment { font-size: 65px; }
+  .product-info { padding: 12px; }
+  .product h3 { font-size: 14px; }
+  .mini { padding: 9px 10px; }
+}
+@media (max-width: 360px) {
+  .links a:nth-child(3) { display: none; }
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
-
 <body>
-
-  <div class="container">
-
-    <div class="header">
-      <h1>EL NEGRO 🤞🍀</h1>
-      <p>Seleccioná una opción para continuar</p>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#">NOVA<span>WEAR</span></a>
+    <div class="links">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#exclusivo">Exclusivo</a>
+      <a href="#marca">La marca</a>
     </div>
+    <a class="pill" href="#catalogo">Explorar ↗</a>
+  </nav>
 
-    <div class="panel">
-
-      <div class="panel-title">
-        OPCIONES
+  <header class="hero" id="marca">
+    <div>
+      <div class="eyebrow">Virtual fashion · Roblox</div>
+      <h1>VESTÍ TU<br><span>ESTILO.</span></h1>
+      <p>Diseños originales para tu avatar. Descubrí nuevas combinaciones, encontrá tu estilo y conocé nuestras próximas colecciones.</p>
+      <div class="actions">
+        <a class="pill primary" href="#catalogo">Ver colección ↗</a>
+        <a class="pill" href="#exclusivo">Contenido exclusivo</a>
       </div>
+    </div>
+    <div class="hero-art" aria-label="Avatar virtual con ropa urbana">
+      <div class="avatar">
+        <div class="hair"></div>
+        <div class="head"></div>
+        <div class="body">NOVA</div>
+        <div class="legs"><i></i><i></i></div>
+      </div>
+    </div>
+  </header>
 
-      <a class="task"
-         href="https://www.youtube.com/"
-         target="_blank">
-        <div class="icon">▶</div>
-        <div class="task-text">
-          <div class="task-title">VER EL VIDEO</div>
-          <div class="task-description">
-            Mirá el video en YouTube
-          </div>
-        </div>
-        <div class="arrow">›</div>
-      </a>
-
-      <a class="task"
-         href="https://www.youtube.com/"
-         target="_blank">
-        <div class="icon">▶</div>
-        <div class="task-text">
-          <div class="task-title">SEGUNDO VIDEO</div>
-          <div class="task-description">
-            Abrir otro video
-          </div>
-        </div>
-        <div class="arrow">›</div>
-      </a>
-
-      <a class="task" href="#informacion">
-        <div class="icon">★</div>
-        <div class="task-text">
-          <div class="task-title">INFORMACIÓN</div>
-          <div class="task-description">
-            Conocé más sobre el proyecto
-          </div>
-        </div>
-        <div class="arrow">›</div>
-      </a>
-
-      <a class="task"
-         href="https://example.com"
-         target="_blank">
-        <div class="icon">↗</div>
-        <div class="task-text">
-          <div class="task-title">SITIO WEB</div>
-          <div class="task-description">
-            Visitar el sitio web
-          </div>
-        </div>
-        <div class="arrow">›</div>
-      </a>
-
-      <a class="continue"
-         href="https://www.youtube.com/"
-         target="_blank">
-        CONTINUAR
-      </a>
-
+  <section id="catalogo">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Encontrá tu próximo outfit</div>
+        <h2>La colección</h2>
+        <div class="intro">Diseños y conceptos de nuestra marca.</div>
+      </div>
     </div>
 
-    <div class="separator">OR</div>
-
-    <div class="panel" id="informacion">
-      <div class="panel-title">INFORMACIÓN</div>
-
-      <p style="color:#91a9b8; line-height:1.6;">
-        Bienvenido a NovaScripts.
-      </p>
+    <div class="filters">
+      <button class="filter active" data-filter="Todos">Todo</button>
+      <button class="filter" data-filter="Remeras">Remeras</button>
+      <button class="filter" data-filter="Urbano">Urbano</button>
+      <button class="filter" data-filter="Accesorios">Accesorios</button>
     </div>
 
-    <div class="footer">
-      © 2026 — NovaScripts
+    <div class="grid" id="products">
+      <article class="product" data-category="Remeras">
+        <div class="product-art art1"><span class="garment">👕</span></div>
+        <div class="product-info">
+          <div class="tag">NOVA · 001</div>
+          <h3>Core Street Tee</h3>
+          <p>Concepto urbano con detalles minimalistas.</p>
+          <div class="price-row"><div class="price">$1 <small>USD · objetivo</small></div><button class="mini" onclick="details('Core Street Tee')">Ver diseño</button></div>
+        </div>
+      </article>
+      <article class="product" data-category="Urbano">
+        <div class="product-art art2"><span class="garment">🧥</span></div>
+        <div class="product-info">
+          <div class="tag">NOVA · 002</div>
+          <h3>Night Hoodie</h3>
+          <p>Estilo oscuro para una colección nocturna.</p>
+          <div class="price-row"><div class="price">$1 <small>USD · objetivo</small></div><button class="mini" onclick="details('Night Hoodie')">Ver diseño</button></div>
+        </div>
+      </article>
+      <article class="product" data-category="Urbano">
+        <div class="product-art art3"><span class="garment">👖</span></div>
+        <div class="product-info">
+          <div class="tag">NOVA · 003</div>
+          <h3>Loose Cargo</h3>
+          <p>Inspiración streetwear con silueta relajada.</p>
+          <div class="price-row"><div class="price">$1 <small>USD · objetivo</small></div><button class="mini" onclick="details('Loose Cargo')">Ver diseño</button></div>
+        </div>
+      </article>
+      <article class="product" data-category="Remeras">
+        <div class="product-art art4"><span class="garment">👕</span></div>
+        <div class="product-info">
+          <div class="tag">NOVA · 004</div>
+          <h3>Ice Graphic</h3>
+          <p>Idea de remera con gráficos originales.</p>
+          <div class="price-row"><div class="price">$1 <small>USD · objetivo</small></div><button class="mini" onclick="details('Ice Graphic')">Ver diseño</button></div>
+        </div>
+      </article>
+      <article class="product" data-category="Accesorios">
+        <div class="product-art art5"><span class="garment">🧢</span></div>
+        <div class="product-info">
+          <div class="tag">NOVA · 005</div>
+          <h3>Urban Cap</h3>
+          <p>Un concepto simple para completar el look.</p>
+          <div class="price-row"><div class="price">$1 <small>USD · objetivo</small></div><button class="mini" onclick="details('Urban Cap')">Ver diseño</button></div>
+        </div>
+      </article>
+      <article class="product" data-category="Accesorios">
+        <div class="product-art art6"><span class="garment">🎒</span></div>
+        <div class="product-info">
+          <div class="tag">NOVA · 006</div>
+          <h3>Daily Pack</h3>
+          <p>Concepto de accesorio para la colección.</p>
+          <div class="price-row"><div class="price">$1 <small>USD · objetivo</small></div><button class="mini" onclick="details('Daily Pack')">Ver diseño</button></div>
+        </div>
+      </article>
     </div>
+    <div class="note">Importante: estos son conceptos de muestra, no artículos publicados en Roblox. Los precios son objetivos ilustrativos; Roblox determina sus precios y requisitos de publicación. Los botones todavía no venden ni abren artículos reales.</div>
+  </section>
 
-  </div>
+  <section id="exclusivo">
+    <div class="exclusive">
+      <div>
+        <div class="eyebrow">NovaWear Members</div>
+        <h2>Entrá al lado exclusivo.</h2>
+        <p>Una futura zona para colecciones especiales, ideas de outfits, adelantos y diseños de nuestra marca.</p>
+        <a class="pill primary" href="#catalogo" onclick="alert('El acceso premium todavía no está activo. Primero debemos configurar el contenido y un sistema de pago compatible.')">Conocer el acceso ↗</a>
+      </div>
+      <div class="big-price">US$2 <small>/ acceso propuesto</small></div>
+    </div>
+    <div class="note">El acceso premium aún no está habilitado ni cobra dinero. Para activarlo necesitaremos configurar pagos y controlar el acceso al contenido. No ingreses datos bancarios en esta página de demostración.</div>
+  </section>
 
+  <footer>
+    <a class="logo" href="#">NOVA<span>WEAR</span></a>
+    <div>Moda virtual · Diseños originales · Comunidad</div>
+    <div>Marca independiente, no oficial de Roblox.</div>
+  </footer>
+</div>
+
+<script>
+function details(name) {
+  alert(name + "\n\nEste diseño todavía es una muestra. Cuando publiquemos la prenda en Roblox, agregaremos aquí su enlace oficial.");
+}
+document.querySelectorAll(".filter").forEach(function(button) {
+  button.addEventListener("click", function() {
+    document.querySelectorAll(".filter").forEach(function(b) {
+      b.classList.remove("active");
+    });
+    button.classList.add("active");
+    const category = button.dataset.filter;
+    document.querySelectorAll(".product").forEach(function(card) {
+      card.style.display =
+        category === "Todos" || card.dataset.category === category
+        ? "" : "none";
+    });
+  });
+});
+</script>
 </body>
-</html>
+                                   </html>
+                                   
